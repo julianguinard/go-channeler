@@ -3,7 +3,7 @@ package channeler
 import (
     "fmt"
     "log"
-    "app/utils/array"
+    "github.com/julianguinard/go-channeler/utils/array"
 )
 
 type variadicTypeChannel chan interface{}
