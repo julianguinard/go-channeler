@@ -6,7 +6,7 @@ import (
     "testing"
     "fmt"
     "bytes"
-    "app/utils/strings"
+    "github.com/julianguinard/go-channeler/utils/strings"
     "github.com/stretchr/testify/assert"
     "github.com/spf13/cast"
 )
