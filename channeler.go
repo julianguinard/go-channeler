@@ -68,12 +68,12 @@ func (channeler *Channeler) establishDependencyChannels() {
                 //and into potentiallyDependantCb's dependenciesChannels
                 channeledCallback.channels["feed"][nameOfPotentiallyDependantCb] = make(variadicTypeChannel, 1)
                 potentiallyDependantCb.channels["dependencies"][callbackName] = channeledCallback.channels["feed"][nameOfPotentiallyDependantCb]
-                //log.Printf("EXPOSE A variadicTypeChannel DEPENDENCY BETWEEN channeledCallback.channels[\"feed\"][\"%s\"] (Adress : %s) and potentiallyDependantCb.channels[\"dependencies\"][\"%s\"] (Adress : %s)",
+                /*log.Printf("EXPOSE A variadicTypeChannel DEPENDENCY BETWEEN channeledCallback.channels[\"feed\"][\"%s\"] (Adress : %s) and potentiallyDependantCb.channels[\"dependencies\"][\"%s\"] (Adress : %s)",
                     nameOfPotentiallyDependantCb,
                     channeledCallback.channels["feed"][nameOfPotentiallyDependantCb],
                     callbackName,
                     potentiallyDependantCb.channels["dependencies"][callbackName],
-                )
+                )*/
             }
         }
     }
