@@ -85,12 +85,12 @@ Close each of channeler.channels and each of channeler.CallbackChain channels
  */
 func (channeler *Channeler) closeAllChannels() {
     //close the channeler's own channels
-    for callbackName, oneChannel := range channeler.channels {
+    for _, oneChannel := range channeler.channels {
         //log.Printf("Close channeler's channel %s", callbackName)
         close(oneChannel)
     }
     //close the channeler's callback chain channels
-    for callbackName, oneChanneledCallback := range *channeler.CallbackChain {
+    for _, oneChanneledCallback := range *channeler.CallbackChain {
         if(len(oneChanneledCallback.channels["feed"]) > 0) {
             //log.Printf("- Close all feed channels for channeler's callback %s", callbackName)
             oneChanneledCallback.closeAllChannels()
@@ -112,9 +112,9 @@ func (channeler *Channeler) Run() {
             //if there are blocking dependencies wait for them to be fetched using dependenciesChannels...
             if (len(channeledCallback.channels["dependencies"]) > 0) {
                 //log.Printf("[%s] -- needs to wait for %d dependencies to be satisfied...", callbackName, len(channeledCallback.channels["dependencies"]))
-                for depCbName, _ := range channeledCallback.channels["dependencies"] {
-                    //log.Printf("[%s] --    - callback %s", callbackName, depCbName)
-                }
+                /*for depCbName, _ := range channeledCallback.channels["dependencies"] {
+                    log.Printf("[%s] --    - callback %s", callbackName, depCbName)
+                }*/
                 for depCbName, dependencyCbChannel := range channeledCallback.channels["dependencies"] {
                     dependenciesResults[depCbName] = <-dependencyCbChannel
                     //whenever an error is received through a dependency channel, we do not invoke the channeledCallback.CallbackFunction
