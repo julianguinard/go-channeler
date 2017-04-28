@@ -1,8 +1,8 @@
 package channeler
 
-import (
+/*import (
     "log"
-)
+)*/
 
 
 /**
@@ -33,8 +33,8 @@ Propagate a given message or error to channeledCallback.channels["feed"] and clo
 func (channeledCallback *ChanneledCallback) propagateToFedChannels(message interface{}) {
     if (len(channeledCallback.channels["feed"]) > 0) {
         //feed result or errors to dependencies
-        for fedName, fedChannel := range channeledCallback.channels["feed"] {
-            log.Println("FEED CHANNEL %s WITH %s", fedName, message)
+        for _, fedChannel := range channeledCallback.channels["feed"] {
+            //log.Println("FEED CHANNEL %s WITH %s", fedName, message)
             fedChannel <- message
         }
     }
@@ -44,8 +44,8 @@ func (channeledCallback *ChanneledCallback) propagateToFedChannels(message inter
 Close each of channeler.channels and each of channeler.CallbackChain channels
  */
 func (channeledCallback *ChanneledCallback) closeAllChannels() {
-    for feedCallbackName, oneChannel := range channeledCallback.channels["feed"] {
-        log.Println("  - Close channeledCallback's feed channel %s", feedCallbackName)
+    for _, oneChannel := range channeledCallback.channels["feed"] {
+        //log.Println("  - Close channeledCallback's feed channel %s", feedCallbackName)
         close(oneChannel)
     }
 }
