@@ -2,7 +2,7 @@
 
 This Channeler package is aimed at providing an easy way to coordinate asynchronous efforts in an easy way, using goroutines and channels internally.
 
-The idea is to get the same behavior as NodeJS' async librairy auto function does, but within golang : (see http://caolan.github.io/async/docs.html#auto). It allow us to parallelize execution of several functions at the same time when possible, and express blocking dependencies between these functions 
+The idea is to get the same behavior as NodeJS' async librairy auto function does, but within golang : (see https://caolan.github.io/async/v3/docs.html#auto). It allow us to parallelize execution of several functions at the same time when possible, and express blocking dependencies between these functions 
 
 In order to do This, the package provides 2 structs:
 
