@@ -28,15 +28,15 @@ appropriate channel chain
  */
 type Channeler struct {
     CallbackChain     *CallbackChain
-    //========private attributes : initialized on NewChanneler() call
-    //populated from CallbackChain : a channel by map entry in CallbackChain
+    //========private attribute : initialized on NewChanneler() call
     channels          channelsMap
+    //populated from CallbackChain : a channel by map entry in CallbackChain
     Results           CallbackResults
     Errors            map[string]error
 }
 
 /**
-Factory method that initializes a Channeler and populate its attributes
+Factory method that initializes a Channeler and populate its properties
  */
 func NewChanneler(callbackChain *CallbackChain) *Channeler {
     channeler := &Channeler{CallbackChain:callbackChain}
@@ -100,7 +100,7 @@ func (channeler *Channeler) closeAllChannels() {
 
 /**
 Launch all callbacks simultaneously (1 goroutine per callback in channeler.CallbackChain)
-and block them according to their dependencies ussing their channels
+and block them according to their dependencies using their channels
  */
 func (channeler *Channeler) Run() {
     channeler.establishDependencyChannels()

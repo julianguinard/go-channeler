@@ -180,7 +180,7 @@ func TestChanneler_RunRedAppleAndYellowAppleErrorPropagation(t *testing.T) {
 }
 
 /**
-Must execute in less than 1s as there are no waiting times specified
+Must execute in less than 1s as 0 waiting times are specified
  */
 func TestChanneler_RunAllOkImediately(t *testing.T) {
     var waitTimePerFruitAndColor = timeDurationByFruitAndColor{
@@ -428,7 +428,7 @@ func initFruitsChannelerWithStandardCbChain(t *testing.T, waitTimePerFruitAndCol
 }
 
 /**
-return a random integer between 1 and 4, expressed as a "Second" time.Duration
+return a random integer between 1 and 20, to be casted as a "Second" time.Duration
  */
 func getRandomWaitTime() int {
     rand.Seed(time.Now().UTC().UnixNano())

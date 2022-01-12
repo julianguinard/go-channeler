@@ -51,7 +51,7 @@ func (channeledCallback *ChanneledCallback) closeAllChannels() {
 }
 
 /**
-Initialize channeledCallback(s channels attributes to empty map
+Initialize channeledCallback(s channels properties to empty map
  */
 func (channeledCallback *ChanneledCallback) initDependenciesFeedChannels() {
     channeledCallback.channels = map[string]channelsMap{
@@ -61,7 +61,7 @@ func (channeledCallback *ChanneledCallback) initDependenciesFeedChannels() {
 }
 
 /**
-Initializes a new ChanneledCallback with passed public attributes and initialize the private attributes as well
+Initializes a new ChanneledCallback with passed public properties
  */
 func NewChanneledCallback(callbackFunction ChanneledCallbackCallbackFunction, dependenciesNames []string) *ChanneledCallback {
     channeledCallback := &ChanneledCallback{
